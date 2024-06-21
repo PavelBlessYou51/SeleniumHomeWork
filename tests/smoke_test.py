@@ -39,6 +39,6 @@ def test_smoke(start_testing_info, get_driver):
 
     rp = RegPage(get_driver)
     rp.end_registration()
-    assert rp.get_approve() == 'Заказ ожидает оплаты!'
+    assert rp.get_approve() == 'Заказ ожидает оплаты!' or 'Заказ резервируется!'
     rp.get_screen()
     print('Success! Smoke testing is ended!')

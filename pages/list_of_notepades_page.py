@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -82,7 +84,9 @@ class NotepadesPage(BasePage):
         count_of_prod = list()
         count_of_prod.append(self.save_count_of_prod())
         self.click_and_pool_price_filter_right()
+        time.sleep(2)
         count_of_prod.append(self.save_count_of_prod())
         self.click_brand_filter()
+        time.sleep(2)
         count_of_prod.append(self.save_count_of_prod())
         return count_of_prod

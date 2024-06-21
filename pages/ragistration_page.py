@@ -50,7 +50,8 @@ class RegPage(BasePage):
         return locator
 
     def get_approve(self):
-        locator = self.driver.find_element(by=By.XPATH, value=self.APPROVED_ORDER)
+        locator = WebDriverWait(self.driver, 30).until(
+            EC.visibility_of_element_located((By.XPATH, self.APPROVED_ORDER)))
         text = locator.text
         return text
 
@@ -104,4 +105,3 @@ class RegPage(BasePage):
         self.click_apply_data()
         time.sleep(2)
         self.click_end_order()
-
